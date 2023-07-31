@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Veritabanı bağlantısı için gerekli ayarlar -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/eCommerceApp</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        
+        <!-- Veritabanı dialekti -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        
+        <!-- Veritabanı işlemleri için gerekli diğer ayarlar -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        
+        <!-- Eşzamanlama ayarları -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!-- Etkinleştirilmiş ikinci seviye önbellekleme için ayarlar -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+        
+        <!-- Eşleştirme dosyalarının yeri -->
+        <mapping class="com.isik.ecommerceapp.entities.User"/>
+        <mapping class="com.isik.ecommerceapp.entities.Product"/>
+        <mapping class="com.isik.ecommerceapp.entities.Category"/>
+        <!-- Diğer eşleştirme dosyaları (class yerine resource da kullanılabilir) -->
+        <!--<mapping resource="com/example/YourEntity.hbm.xml"/>-->
+    </session-factory>
+</hibernate-configuration>
+
